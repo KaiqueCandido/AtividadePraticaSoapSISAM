@@ -86,19 +86,25 @@
                 <version>2.3</version>
                 <executions>
                     <execution>
+                        <id>webServiceSisam</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>wsimport</goal>
                         </goals>
                         <configuration>
-                            <wsdlFiles>
-                                <wsdlFile>sisam.cptec.inpe.br/sisam_webservice/services/MesAnoWebService.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <packageName></packageName>
-                            <wsdlLocation>http://sisam.cptec.inpe.br/sisam_webservice/services/MesAnoWebService?wsdl</wsdlLocation>
-                            <staleFile>${project.build.directory}/jaxws/stale/MesAnoWebService.stale</staleFile>
-                        </configuration>
-                        <id>wsimport-generate-MesAnoWebService</id>
-                        <phase>generate-sources</phase>
+                            <packageName>com.mycompany.atividadepraticasoapsisam.webservicesisam</packageName>
+                            <wsdlUrls>
+                                <wsdlLocation>http://sisam.cptec.inpe.br/sisam_webservice/services/MesAnoWebService?wsdl</wsdlLocation>
+                            </wsdlUrls> 
+                            <verbose>true</verbose>
+                            <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                            <target>2.1</target>
+                            <xnocompile>true</xnocompile>                           
+                            <extension>true</extension>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                        </configuration>                                                
                     </execution>
                 </executions>
                 <dependencies>
