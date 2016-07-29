@@ -1070,4 +1070,11 @@ public class VariaveisView {
         this.ventoVel = value;
     }
 
+    @Override
+    public String toString() {
+        return "VariaveisView{" + "aeros=" + aeros + ", aerosIncert=" + aerosIncert + ", capital=" + capital + ", concCoMax=" + concCoMax + ", concCoMed=" + concCoMed + ", concCoMin=" + concCoMin + ", concPmMax=" + concPmMax + ", concPmMed=" + concPmMed + ", concPmMin=" + concPmMin + ", data=" + data + ", dgElet=" + dgElet + ", estado=" + estado + ", focoq=" + focoq + ", geada=" + geada + ", geocodigo=" + geocodigo + ", gid=" + gid + ", latitude=" + latitude + ", longitude=" + longitude + ", mesoregiao=" + mesoregiao + ", microregia=" + microregia + ", nome=" + nome + ", ondasCalorMax=" + ondasCalorMax + ", ondasCalorMed=" + ondasCalorMed + ", ondasCalorMin=" + ondasCalorMin + ", precAcum=" + precAcum + ", radUv=" + radUv + ", regiao=" + regiao + ", tempestade=" + tempestade + ", tmpArMax=" + tmpArMax + ", tmpArMed=" + tmpArMed + ", tmpArMin=" + tmpArMin + ", uf=" + uf + ", umidArMax=" + umidArMax + ", umidArMed=" + umidArMed + ", umidArMin=" + umidArMin + ", ventoDir=" + ventoDir + ", ventoVel=" + ventoVel + '}';
+    }
+    
+    
+
 }

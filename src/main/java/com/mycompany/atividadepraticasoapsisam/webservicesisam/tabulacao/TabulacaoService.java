@@ -1,9 +1,6 @@
 
 package com.mycompany.atividadepraticasoapsisam.webservicesisam.tabulacao;
 
-import com.mycompany.atividadepraticasoapsisam.webservicesisam.municipios.Estados;
-import com.mycompany.atividadepraticasoapsisam.webservicesisam.municipios.PontosMunicipais;
-import com.mycompany.atividadepraticasoapsisam.webservicesisam.variaveis.VarWebServiceView;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -64,7 +61,5 @@ public interface TabulacaoService {
         List<String> municipio,
         @WebParam(name = "vars", targetNamespace = "http://webservice.sisam.dsa.inpe.br")
         List<String> vars);
-
-    public void getDadosTabulados(String ano, String string, String string0, List<String> meses, List<String> anos, String estado, List<Estados> estados, List<PontosMunicipais> municipios, List<VarWebServiceView> listaVariaveis);
 
 }

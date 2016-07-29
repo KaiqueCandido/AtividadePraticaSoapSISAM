@@ -4,16 +4,15 @@ import com.mycompany.atividadepraticasoapsisam.webservicesisam.MesAnoService;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.MesAnoServiceService;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.municipios.CidadesService;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.municipios.CidadesServiceService;
-import com.mycompany.atividadepraticasoapsisam.webservicesisam.municipios.Estados;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.municipios.PontosMunicipais;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.tabulacao.TabulacaoService;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.tabulacao.TabulacaoServiceService;
-import com.mycompany.atividadepraticasoapsisam.webservicesisam.variaveis.VarDescWebServiceView;
+import com.mycompany.atividadepraticasoapsisam.webservicesisam.tabulacao.VariaveisView;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.variaveis.VarWebServiceView;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.variaveis.VariaveisService;
 import com.mycompany.atividadepraticasoapsisam.webservicesisam.variaveis.VariaveisServiceService;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,28 +27,40 @@ public class SisamTeste {
 
     public static void main(String[] args) {
         MesAnoServiceService mesAnoService = new MesAnoServiceService();
-        MesAnoService mesAnoWebService = mesAnoService.getMesAnoWebService();
-        mesAnoWebService.getAnos().forEach(System.out::println);
+        MesAnoService mesAnoWebService = mesAnoService.getMesAnoWebService();        
 
         CidadesServiceService cidadesServiceService = new CidadesServiceService();
         CidadesService cidadesWebService = cidadesServiceService.getCidadesWebService();
-        cidadesWebService.getEstados().forEach(e -> System.out.println(e.getEstado()));
 
         VariaveisServiceService variaveisServiceService = new VariaveisServiceService();
         VariaveisService variaveisWebService = variaveisServiceService.getVariaveisWebService();
-        variaveisWebService.getListaVariaveisDesc().forEach(t -> System.out.println(t.getNome()));
 
         TabulacaoServiceService tabulacaoServiceService = new TabulacaoServiceService();
         TabulacaoService tabulacaoWebService = tabulacaoServiceService.getTabulacaoWebService();
-        
-        List<String> meses = mesAnoWebService.getMeses();
-        List<String> anos = mesAnoWebService.getAnos();
-        List<Estados> estados = cidadesWebService.getEstados();
-        List<PontosMunicipais> municipios = cidadesWebService.getMunicipios("Cajazeiras");
-        List<VarWebServiceView> listaVariaveis = variaveisWebService.getListaVariaveis();
-        
-        tabulacaoWebService.getDadosTabulados("ano", "2004", "2012", meses, anos, "estado", estados, municipios, listaVariaveis);
-        
-    }
 
+        String opcData = "mes";
+        String dataInicial = "2004-01-01";
+        String dataFinal = "2015-08-01";
+        List<String> mes = mesAnoWebService.getMeses();
+        List<String> ano = null;
+        String opcEstMun = "municipio";
+        List<String> estado = null;
+
+        List<PontosMunicipais> municipiosDeJoaoPessoa = cidadesWebService.getMunicipios("João Pessoa");
+        ArrayList<String> municipios = new ArrayList<>();
+        municipiosDeJoaoPessoa.stream().forEach((m) -> {
+            municipios.add(m.getNome());
+        });
+
+        List<VarWebServiceView> listaVariaveis = variaveisWebService.getListaVariaveis();
+        ArrayList<String> variaveis = new ArrayList<>();
+        listaVariaveis.stream().forEach((v) -> {
+            variaveis.add(v.getNome());
+        });
+
+        List<VariaveisView> dadosTabulados = tabulacaoWebService.getDadosTabulados(opcData, dataInicial, dataFinal, mes, ano, opcEstMun, estado, municipios, variaveis);
+        dadosTabulados.stream().forEach((dados) -> {
+            System.out.println(dados.toString());
+        });
+    }
 }
