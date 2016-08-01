@@ -1072,8 +1072,45 @@ public class VariaveisView {
 
     @Override
     public String toString() {
-        return "VariaveisView{" + "aeros=" + aeros + ", aerosIncert=" + aerosIncert + ", capital=" + capital + ", concCoMax=" + concCoMax + ", concCoMed=" + concCoMed + ", concCoMin=" + concCoMin + ", concPmMax=" + concPmMax + ", concPmMed=" + concPmMed + ", concPmMin=" + concPmMin + ", data=" + data + ", dgElet=" + dgElet + ", estado=" + estado + ", focoq=" + focoq + ", geada=" + geada + ", geocodigo=" + geocodigo + ", gid=" + gid + ", latitude=" + latitude + ", longitude=" + longitude + ", mesoregiao=" + mesoregiao + ", microregia=" + microregia + ", nome=" + nome + ", ondasCalorMax=" + ondasCalorMax + ", ondasCalorMed=" + ondasCalorMed + ", ondasCalorMin=" + ondasCalorMin + ", precAcum=" + precAcum + ", radUv=" + radUv + ", regiao=" + regiao + ", tempestade=" + tempestade + ", tmpArMax=" + tmpArMax + ", tmpArMed=" + tmpArMed + ", tmpArMin=" + tmpArMin + ", uf=" + uf + ", umidArMax=" + umidArMax + ", umidArMed=" + umidArMed + ", umidArMin=" + umidArMin + ", ventoDir=" + ventoDir + ", ventoVel=" + ventoVel + '}';
-    }
+        return "VariaveisView{" + "aeros=" + aeros + ", "
+                + "\naerosIncert=" + aerosIncert + ", "
+                + "\ncapital=" + capital + ", "
+                + "\nconcCoMax=" + concCoMax + ", "
+                + "\nconcCoMed=" + concCoMed + ", "
+                + "\nconcCoMin=" + concCoMin + ", "
+                + "\nconcPmMax=" + concPmMax + ", "
+                + "\nconcPmMed=" + concPmMed + ", "
+                + "\nconcPmMin=" + concPmMin + ", "
+                + "\ndata=" + data + ", "
+                + "\ndgElet=" + dgElet + ", "
+                + "\nestado=" + estado + ", "
+                + "\nfocoq=" + focoq + ", "
+                + "\ngeada=" + geada + ", "
+                + "\ngeocodigo=" + geocodigo + ", "
+                + "\ngid=" + gid + ", "
+                + "\nlatitude=" + latitude + ", "
+                + "\nlongitude=" + longitude + ", "
+                + "\nmesoregiao=" + mesoregiao + ", "
+                + "\nmicroregia=" + microregia + ", "
+                + "\nnome=" + nome + ", "
+                + "\nondasCalorMax=" + ondasCalorMax + ", "
+                + "\nondasCalorMed=" + ondasCalorMed + ", "
+                + "\nondasCalorMin=" + ondasCalorMin + ", "
+                + "\nprecAcum=" + precAcum + ", "
+                + "\nradUv=" + radUv + ", "
+                + "\nregiao=" + regiao + ", "
+                + "\ntempestade=" + tempestade + ", "
+                + "\ntmpArMax=" + tmpArMax + ", "
+                + "\ntmpArMed=" + tmpArMed + ", "
+                + "\ntmpArMin=" + tmpArMin + ", "
+                + "\nuf=" + uf + ", "
+                + "\numidArMax=" + umidArMax + ", "
+                + "\numidArMed=" + umidArMed + ", "
+                + "\numidArMin=" + umidArMin + ", "
+                + "\nventoDir=" + ventoDir + ", "
+                + "\nventoVel=" + ventoVel + '}' 
+                + "\n\n\n";
+}
     
     
 

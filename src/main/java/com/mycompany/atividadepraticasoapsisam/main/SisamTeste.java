@@ -24,43 +24,46 @@ import java.util.List;
  * @author Luciana
  */
 public class SisamTeste {
-
+    
     public static void main(String[] args) {
         MesAnoServiceService mesAnoService = new MesAnoServiceService();
-        MesAnoService mesAnoWebService = mesAnoService.getMesAnoWebService();        
-
+        MesAnoService mesAnoWebService = mesAnoService.getMesAnoWebService();
+//        mesAnoWebService.getAnos().forEach(System.out::println);
+        
         CidadesServiceService cidadesServiceService = new CidadesServiceService();
         CidadesService cidadesWebService = cidadesServiceService.getCidadesWebService();
-
+        
         VariaveisServiceService variaveisServiceService = new VariaveisServiceService();
         VariaveisService variaveisWebService = variaveisServiceService.getVariaveisWebService();
-
+        List<VarWebServiceView> listaVariaveis = variaveisWebService.getListaVariaveis();
+        listaVariaveis.stream().forEach((listaVariavei) -> {
+            System.out.println(listaVariavei.getNome());
+        });
+        
         TabulacaoServiceService tabulacaoServiceService = new TabulacaoServiceService();
         TabulacaoService tabulacaoWebService = tabulacaoServiceService.getTabulacaoWebService();
-
-        String opcData = "mes";
-        String dataInicial = "2004-01-01";
-        String dataFinal = "2015-08-01";
-        List<String> mes = mesAnoWebService.getMeses();
-        List<String> ano = null;
+        
+        String opcData = "ano";
+        
+        String dataInicial = "2004-12-31";
+        
+        String dataFinal = "2005-12-31";
+        
+        List<String> mes = null;
+        
+        List<String> ano = mesAnoWebService.getAnos();        
+        
         String opcEstMun = "municipio";
+        
         List<String> estado = null;
-
-        List<PontosMunicipais> municipiosDeJoaoPessoa = cidadesWebService.getMunicipios("João Pessoa");
-        ArrayList<String> municipios = new ArrayList<>();
-        municipiosDeJoaoPessoa.stream().forEach((m) -> {
-            municipios.add(m.getNome());
-        });
-
-        List<VarWebServiceView> listaVariaveis = variaveisWebService.getListaVariaveis();
-        ArrayList<String> variaveis = new ArrayList<>();
-        listaVariaveis.stream().forEach((v) -> {
-            variaveis.add(v.getNome());
-        });
-
-        List<VariaveisView> dadosTabulados = tabulacaoWebService.getDadosTabulados(opcData, dataInicial, dataFinal, mes, ano, opcEstMun, estado, municipios, variaveis);
-        dadosTabulados.stream().forEach((dados) -> {
-            System.out.println(dados.toString());
-        });
+        
+        List<String> municipio = new ArrayList<>();
+        municipio.add("3976");
+        
+        List<String> vars = new ArrayList<>();
+        vars.add("geada");        
+        
+        List<VariaveisView> dadosTabulados = tabulacaoWebService.getDadosTabulados(opcData, dataInicial, dataFinal, mes, ano, opcEstMun, estado, municipio, vars);
+        System.out.println(dadosTabulados.toString());
     }
 }
